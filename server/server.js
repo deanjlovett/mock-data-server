@@ -2,18 +2,23 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const jwt = require('jsonwebtoken');
+const cookieParser = require("cookie-parser");
 require('dotenv').config();
 
+const mockData = require('./mockUsers.json');
 //This is middle ware that will check a token if we want at some point. 
 const withAuth = require('./with-auth.js');
+const secret = process.env.JWT_SECRET;
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+    res.header('Access-Control-Allow-Credentials', true);
     res.header(
         'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept, Authorization'
@@ -25,27 +30,6 @@ app.use((req, res, next) => {
     next();
 });
 
-let mentorData = {
-    onboarding: true,
-    matched: true,
-    training: false,
-    schedule: false, 
-    notes: false,
-    currentStreak: 1,
-    longestStreak: 3,
-    rating: 3.5
-}
-
-let menteeData = {
-    onboarding: true,
-    matched: true,
-    introduced: false,
-    schedule: false, 
-    smart: false,
-    sessions: 1/3,
-    lifetimeSessions: 8/9,
-    rating: 3.5
-}
 
 app.get('/', (req, res) => {
     console.log('request made to root...');
@@ -53,50 +37,66 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    console.log(req.query.role);
-    //we can set teh variable role basedon on received post request content later. 
-    let role = "administrator";
+    const submittedUsername = req.query.username;
+    console.log(submittedUsername);
+
+    let responseData = { 
+            userId : 0,
+            name: "",
+            role: "",
+            userData: {}
+    };
     
+    for (let i = 0; i < mockData.length; i++) {
+        console.log(mockData[i], submittedUsername)
+        if (mockData[i].name === submittedUsername) {
+            responseData = mockData[i];
+        }
+    }
+
+    if (responseData.userId != 0) {
+
+        const payload = { submittedUsername, responseData };
+        const token = jwt.sign(payload, secret, { expiresIn: '4h'});
+        res.cookie('token', token, { httpOnly: false, secure: false }).status(200).send(responseData);
+    } else {
+        res.status(200).send({
+            user: "no user found"
+        });
+    }
+});
+
+app.get('/mentor', withAuth, (req, res) => {
+    //This is put in req.body by the middleware
+    const { userName, userData } = req.body;
+
+    //userData and userName are sent back having been parsed out of the token stuck in the Cookies, no need oo re-request explicitly if user has a valid token issued at login. 
     res.status(200).send({
-        userId: 12,
-        role: role,
-        userData: mentorData
+        userName: userName,
+        userData: userData
     });
 });
 
-app.post('/login', (req, res) => {
-    console.log(req)
-    //we can set teh variable role basedon on received post request content later. 
-    let role = "administrator";
-    
+app.get('/mentee', withAuth, (req, res) => {
+    //This is put in req.body by the middleware
+    const { userName, userData } = req.body;
+
+    //userData and userName are sent back having been parsed out of the token stuck in the Cookies, no need oo re-request explicitly if user has a valid token issued at login. 
     res.status(200).send({
-        userId: 12,
-        role: role,
-        userData: mentorData
+        userName: userName,
+        userData: userData
     });
 });
 
-app.get('/mentor', (req, res) => {
-    
-    res.status(200).send({mentorData: mentorData});
-});
+app.get('/dashboard', withAuth, (req, res) => {
+    //This is put in req.body by the middleware
+    const { userName, userData } = req.body;
 
-app.get('/mentee', (req, res) => {
-
-    res.status(200).send({menteeData: menteeData});
-});
-
-app.get('/dashboard', (req, res) => {
-    
-    res.status(200).send([{
-        userId: 13,
-        role: "mentor",
-        userData: mentorData
-    }, {
-        userId: 12,
-        role: "mentee",
-        userData: menteeData
-    }]);
+    //userData and userName are sent back having been parsed out of the token stuck in the Cookies, no need oo re-request explicitly if user has a valid token issued at login. 
+    res.status(200).send({
+        userName: userName,
+        userData: userData
+    });
 });
 
 module.exports = app;
