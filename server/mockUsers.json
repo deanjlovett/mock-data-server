@@ -1,26 +1,24 @@
 [
     {
+        "userData": {
         "userId": 1,
         "name": "admin1",
-        "role": "admin",
-        "userData": {
-
+        "role": "admin"
         }
     },
     {
+        "userData": {
         "userId": 2,
         "name": "admin2",
-        "role": "admin",
-        "userData": {
-
+        "role": "admin"
         }
     },
     {
-        "userId": 3,
-        "name": "mentor1",
-        "role": "mentor",
         "mentees": [5, 6],
         "userData": {
+            "userId": 3,
+            "name": "mentor1",
+            "role": "mentor",
             "onboarding": true,
             "matched": true,
             "training": false,
@@ -32,11 +30,11 @@
         }
     },
     {
-        "userId": 4,
-        "name": "mentor2",
-        "role": "mentor",
         "mentees": [7, 8],
         "userData": {
+            "userId": 4,
+            "name": "mentor2",
+            "role": "mentor",
             "onboarding": true,
             "matched": true,
             "training": true,
@@ -48,11 +46,11 @@
         }
     },
     {
-        "userId": 5,
-        "name": "mentee1",
-        "role": "mentee",
         "mentor": [3],
         "userData": {
+            "userId": 5,
+            "name": "mentee1",
+            "role": "mentee",
             "onboarding": true,
             "matched": true,
             "introduced": false,
@@ -66,11 +64,12 @@
         }
     }, 
     {
-        "userId": 6,
-        "name": "mentee2",
-        "role": "mentee",
+
         "mentor": [3],
         "userData": {
+            "userId": 6,
+            "name": "mentee2",
+            "role": "mentee",
             "onboarding": true,
             "matched": true,
             "introduced": false,
@@ -84,11 +83,12 @@
         }
     },
     {
-        "userId": 7,
-        "name": "mentee3",
-        "role": "mentee",
+
         "mentor": [4],
         "userData": {
+            "userId": 7,
+            "name": "mentee3",
+            "role": "mentee",
             "onboarding": true,
             "matched": true,
             "introduced": false,
@@ -102,11 +102,11 @@
         }
     },
     {
-        "userId": 8,
-        "name": "mentee4",
-        "role": "mentee",
         "mentor": [4],
         "userData": {
+            "userId": 8,
+            "name": "mentee4",
+            "role": "mentee",
             "onboarding": true,
             "matched": true,
             "introduced": false,
@@ -120,10 +120,11 @@
         }
     },
     {
-        "userId": 9,
-        "name": "mentee5",
-        "role": "mentee",
+
         "userData": {
+            "userId": 9,
+            "name": "mentee5",
+            "role": "mentee",
             "onboarding": true,
             "matched": true,
             "introduced": false,

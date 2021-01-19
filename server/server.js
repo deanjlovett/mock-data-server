@@ -6,6 +6,9 @@ const cookieParser = require("cookie-parser");
 require('dotenv').config();
 
 const mockData = require('./mockUsers.json');
+const mockMentor = require('./mentor.json');
+const mockMentee = require('./mentee.json');
+
 //This is middle ware that will check a token if we want at some point. 
 const withAuth = require('./with-auth.js');
 const secret = process.env.JWT_SECRET;
@@ -38,31 +41,41 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
     const submittedUsername = req.query.username;
-    console.log(submittedUsername);
 
     let responseData = { 
+        userData: {
             userId : 0,
             name: "",
-            role: "",
-            userData: {}
+            role: ""
+        }
     };
     
     for (let i = 0; i < mockData.length; i++) {
-        console.log(mockData[i], submittedUsername)
-        if (mockData[i].name === submittedUsername) {
-            responseData = mockData[i];
+        if (mockData[i].userData.name === submittedUsername) {
+            switch(mockData[i].userData.role) {
+                case 'admin':
+                    responseData = mockData[i];
+                break;
+                case 'mentor':
+                    responseData = mockMentor;
+                break;
+                case 'mentee': 
+                    responseData = mockMentee;
+                break;
+                default:
+                    //response data is already the dead mock. 
+            }
         }
     }
 
     if (responseData.userId != 0) {
-
+        //if its a real user issue a token and log in
         const payload = { submittedUsername, responseData };
         const token = jwt.sign(payload, secret, { expiresIn: '4h'});
         res.cookie('token', token, { httpOnly: false, secure: false }).status(200).send(responseData);
     } else {
-        res.status(200).send({
-            user: "no user found"
-        });
+        //if it's not a user send empty user data object
+        res.status(200).send(responseData);
     }
 });
 
@@ -92,11 +105,22 @@ app.get('/dashboard', withAuth, (req, res) => {
     //This is put in req.body by the middleware
     const { userName, userData } = req.body;
 
-    //userData and userName are sent back having been parsed out of the token stuck in the Cookies, no need oo re-request explicitly if user has a valid token issued at login. 
-    res.status(200).send({
-        userName: userName,
-        userData: userData
+    let allNonAdminData = mockData.filter((user) => {
+        return user.role != 'admin';
     });
+
+    if (userData.role === 'admin') {
+        res.status(200).send({
+            allUserData: allNonAdminData
+        });
+    } else {
+
+        //userData and userName are sent back having been parsed out of the token stuck in the Cookies, no need oo re-request explicitly if user has a valid token issued at login. 
+        res.status(200).send({
+            allUserData: [userData]
+        });
+    }
+
 });
 
 module.exports = app;
