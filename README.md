@@ -12,3 +12,5 @@ Currently the endpoints
 ```/mentee```
 ```/dashboard```
 exist and send back mock data
+
+Needs a .env with JWT_SECRET as the key. 

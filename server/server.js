@@ -46,33 +46,34 @@ app.get('/login', (req, res) => {
 
     let responseData;
 
-    // for (let i = 0; i < mockData.length; i++) {
-    //     if (mockData[i].userData.name === submittedUsername) {
-    //         switch(mockData[i].userData.role) {
-    //             case 'admin':
-    //                 responseData = mockData[i];
-    //             break;
-    //             case 'mentor':
-    //                 responseData = mockMentor;
-    //             break;
-    //             case 'mentee': 
-    //                 responseData = mockMentee;
-    //             break;
-    //             default:
-    //                 //response data is already the dead mock. 
-    //         }
-    //     }
-    // }
-
     responseData = mockDataObject[submittedUsername] ? mockDataObject[submittedUsername] : mockDataObject['badLogin'];
 
     if (responseData.userId != 0) {
+        if (mockDataObject[submittedUsername].userData.role === 'admin') {
+            let allUsers = [];
+            for (user in mockDataObject) {
+                if (["mentor", "mentee"].find( e => e === mockDataObject[user].userData.role  ) != undefined) {
+                    allUsers.push(mockDataObject[user]);
+                }
+            }
+            responseData = {
+                currentUserData: mockDataObject[submittedUsername],
+                allUsers: allUsers
+            };  
+        } else {
+            responseData = {
+                currentUserData: mockDataObject[submittedUsername]
+            }
+        }
         //if its a real user issue a token and log in
         const payload = { submittedUsername, responseData };
         const token = jwt.sign(payload, secret, { expiresIn: '4h'});
         res.cookie('token', token, { httpOnly: false, secure: false }).status(200).send(responseData);
     } else {
         //if it's not a user send empty user data object
+        responseData = {
+            currentUserData: mockDataObject['badLogin']
+        }
         res.status(200).send(responseData);
     }
 });
@@ -102,22 +103,31 @@ app.get('/mentee', withAuth, (req, res) => {
 app.get('/dashboard', withAuth, (req, res) => {
     //This is put in req.body by the middleware
     const { userName, userData } = req.body;
+    console.log(`userData: `, userData);
+    let userRole = userData.currentUserData.userData.role;
 
-    let allNonAdminData = mockData.filter((user) => {
-        return user.role != 'admin';
-    });
+    let responseData;
 
-    if (userData.role === 'admin') {
-        res.status(200).send({
-            allUserData: allNonAdminData
-        });
-    } else {
+    responseData = mockDataObject[userName] ? mockDataObject[userName] : mockDataObject['badLogin'];
 
-        //userData and userName are sent back having been parsed out of the token stuck in the Cookies, no need oo re-request explicitly if user has a valid token issued at login. 
-        res.status(200).send({
-            allUserData: [userData]
-        });
-    }
+
+        if (userRole === 'admin') {
+            let allUsers = [];
+            for (user in mockDataObject) {
+                if (["mentor", "mentee"].find( e => e === mockDataObject[user].userData.role  ) != undefined) {
+                    allUsers.push(mockDataObject[user]);
+                }
+            }
+            responseData = {
+                currentUserData: mockDataObject[submittedUsername],
+                allUsers: allUsers
+            };  
+        } else {
+            responseData = mockDataObject[userName];
+        }
+        
+        res.status(200).send(responseData);
+    
 
 });
 

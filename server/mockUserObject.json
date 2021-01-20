@@ -23,7 +23,7 @@
     },
     "mentor1" :{
         "mentees": [{
-            "mentor": [3],
+            "mentors": [3],
             "userData": {
                 "userId": 5,
                 "name": "mentee1",
@@ -41,7 +41,7 @@
             }
         }, 
         {
-            "mentor": [3],
+            "mentors": [3],
             "userData": {
                 "userId": 6,
                 "name": "mentee2",
@@ -91,7 +91,7 @@
                 "rating": 3.5
             }
         }, {
-            "mentor": [4],
+            "mentors": [4],
             "userData": {
                 "userId": 8,
                 "name": "mentee4",
@@ -123,7 +123,7 @@
         }
     },
     "mentee1" :{
-        "mentor": [{
+        "mentors": [{
             "mentor": [3],
             "userData": {
                 "userId": 5,
