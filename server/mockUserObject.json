@@ -1,0 +1,310 @@
+{
+    "badLogin": {
+        "userData": {
+        "userId": 0,
+        "name": "",
+        "role": ""
+        }
+    },
+    "admin1" : {
+        "userData": {
+        "userId": 1,
+        "name": "admin1",
+        "role": "admin",
+        "users": {}
+        }
+    },
+    "admin2" :{
+        "userData": {
+        "userId": 2,
+        "name": "admin2",
+        "role": "admin"
+        }
+    },
+    "mentor1" :{
+        "mentees": [{
+            "mentor": [3],
+            "userData": {
+                "userId": 5,
+                "name": "mentee1",
+                "role": "mentee",
+                "onboarding": true,
+                "matched": true,
+                "introduced": false,
+                "schedule": false, 
+                "smart": false,
+                "sessions": 1,
+                "sessionsPossible": 3,
+                "lifetimeSessions": 8,
+                "lifetimeSessionsPossible": 9,
+                "rating": 3.5
+            }
+        }, 
+        {
+            "mentor": [3],
+            "userData": {
+                "userId": 6,
+                "name": "mentee2",
+                "role": "mentee",
+                "onboarding": true,
+                "matched": true,
+                "introduced": false,
+                "schedule": false, 
+                "smart": false,
+                "sessions": 1,
+                "sessionsPossible": 3,
+                "lifetimeSessions": 8,
+                "lifetimeSessionsPossible": 9,
+                "rating": 3.5
+            }
+        }],
+        "userData": {
+            "userId": 3,
+            "name": "mentor1",
+            "role": "mentor",
+            "onboarding": true,
+            "matched": true,
+            "training": false,
+            "schedule": false, 
+            "notes": false,
+            "currentStreak": 1,
+            "longestStreak": 3,
+            "rating": 3.5
+        }
+    },
+    "mentor2" : {
+        "mentees": [{
+            "mentor": [4],
+            "userData": {
+                "userId": 7,
+                "name": "mentee3",
+                "role": "mentee",
+                "onboarding": true,
+                "matched": true,
+                "introduced": false,
+                "schedule": false, 
+                "smart": false,
+                "sessions": 1,
+                "sessionsPossible": 3,
+                "lifetimeSessions": 8,
+                "lifetimeSessionsPossible": 9,
+                "rating": 3.5
+            }
+        }, {
+            "mentor": [4],
+            "userData": {
+                "userId": 8,
+                "name": "mentee4",
+                "role": "mentee",
+                "onboarding": true,
+                "matched": true,
+                "introduced": false,
+                "schedule": false, 
+                "smart": false,
+                "sessions": 1,
+                "sessionsPossible": 3,
+                "lifetimeSessions": 8,
+                "lifetimeSessionsPossible": 9,
+                "rating": 3.5
+            }
+        }],
+        "userData": {
+            "userId": 4,
+            "name": "mentor2",
+            "role": "mentor",
+            "onboarding": true,
+            "matched": true,
+            "training": true,
+            "schedule": true, 
+            "notes": false,
+            "currentStreak": 1,
+            "longestStreak": 3,
+            "rating": 3.5
+        }
+    },
+    "mentee1" :{
+        "mentor": [{
+            "mentor": [3],
+            "userData": {
+                "userId": 5,
+                "name": "mentee1",
+                "role": "mentee",
+                "onboarding": true,
+                "matched": true,
+                "introduced": false,
+                "schedule": false, 
+                "smart": false,
+                "sessions": 1,
+                "sessionsPossible": 3,
+                "lifetimeSessions": 8,
+                "lifetimeSessionsPossible": 9,
+                "rating": 3.5
+            }
+        }],
+        "userData": {
+            "userId": 5,
+            "name": "mentee1",
+            "role": "mentee",
+            "onboarding": true,
+            "matched": true,
+            "introduced": false,
+            "schedule": false, 
+            "smart": false,
+            "sessions": 1,
+            "sessionsPossible": 3,
+            "lifetimeSessions": 8,
+            "lifetimeSessionsPossible": 9,
+            "rating": 3.5
+        }
+    }, 
+    "mentee2" : {
+        "mentors": [{
+            "mentees": [5, 6],
+            "userData": {
+                "userId": 3,
+                "name": "mentor1",
+                "role": "mentor",
+                "onboarding": true,
+                "matched": true,
+                "training": false,
+                "schedule": false, 
+                "notes": false,
+                "currentStreak": 1,
+                "longestStreak": 3,
+                "rating": 3.5
+            }
+        }],
+        "userData": {
+            "userId": 6,
+            "name": "mentee2",
+            "role": "mentee",
+            "onboarding": true,
+            "matched": true,
+            "introduced": false,
+            "schedule": false, 
+            "smart": false,
+            "sessions": 1,
+            "sessionsPossible": 3,
+            "lifetimeSessions": 8,
+            "lifetimeSessionsPossible": 9,
+            "rating": 3.5
+        }
+    },
+    "mentee3" : {
+        "mentors": [{
+            "mentees": [7, 8],
+            "userData": {
+                "userId": 4,
+                "name": "mentor2",
+                "role": "mentor",
+                "onboarding": true,
+                "matched": true,
+                "training": true,
+                "schedule": true, 
+                "notes": false,
+                "currentStreak": 1,
+                "longestStreak": 3,
+                "rating": 3.5
+            }
+        }],
+        "userData": {
+            "userId": 7,
+            "name": "mentee3",
+            "role": "mentee",
+            "onboarding": true,
+            "matched": true,
+            "introduced": false,
+            "schedule": false, 
+            "smart": false,
+            "sessions": 1,
+            "sessionsPossible": 3,
+            "lifetimeSessions": 8,
+            "lifetimeSessionsPossible": 9,
+            "rating": 3.5
+        }
+    },
+    "mentee4" : {
+        "mentors": [{
+            "mentees": [7, 8],
+            "userData": {
+                "userId": 4,
+                "name": "mentor2",
+                "role": "mentor",
+                "onboarding": true,
+                "matched": true,
+                "training": true,
+                "schedule": true, 
+                "notes": false,
+                "currentStreak": 1,
+                "longestStreak": 3,
+                "rating": 3.5
+            }
+        }],
+        "userData": {
+            "userId": 8,
+            "name": "mentee4",
+            "role": "mentee",
+            "onboarding": true,
+            "matched": true,
+            "introduced": false,
+            "schedule": false, 
+            "smart": false,
+            "sessions": 1,
+            "sessionsPossible": 3,
+            "lifetimeSessions": 8,
+            "lifetimeSessionsPossible": 9,
+            "rating": 3.5
+        }
+    },
+    "mentee5" :{
+        "userData": {
+            "userId": 9,
+            "name": "mentee5",
+            "role": "mentee",
+            "onboarding": true,
+            "matched": true,
+            "introduced": false,
+            "schedule": false, 
+            "smart": false,
+            "sessions": 1,
+            "sessionsPossible": 3,
+            "lifetimeSessions": 8,
+            "lifetimeSessionsPossible": 9,
+            "rating": 3.5
+        },
+        "mentors": [
+            {
+                "mentees": [7, 8],
+                "userData": {
+                    "userId": 4,
+                    "name": "mentor2",
+                    "role": "mentor",
+                    "onboarding": true,
+                    "matched": true,
+                    "training": true,
+                    "schedule": true, 
+                    "notes": false,
+                    "currentStreak": 1,
+                    "longestStreak": 3,
+                    "rating": 3.5
+                }
+            },
+            {
+                "mentees": [5, 6],
+                "userData": {
+                    "userId": 3,
+                    "name": "mentor1",
+                    "role": "mentor",
+                    "onboarding": true,
+                    "matched": true,
+                    "training": false,
+                    "schedule": false, 
+                    "notes": false,
+                    "currentStreak": 1,
+                    "longestStreak": 3,
+                    "rating": 3.5
+                }
+            }
+        ]
+    }
+}

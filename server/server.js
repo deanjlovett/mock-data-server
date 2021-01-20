@@ -6,6 +6,8 @@ const cookieParser = require("cookie-parser");
 require('dotenv').config();
 
 const mockData = require('./mockUsers.json');
+const mockDataObject = require('./mockUserObject.json');
+
 const mockMentor = require('./mentor.json');
 const mockMentee = require('./mentee.json');
 
@@ -42,31 +44,27 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
     const submittedUsername = req.query.username;
 
-    let responseData = { 
-        userData: {
-            userId : 0,
-            name: "",
-            role: ""
-        }
-    };
-    
-    for (let i = 0; i < mockData.length; i++) {
-        if (mockData[i].userData.name === submittedUsername) {
-            switch(mockData[i].userData.role) {
-                case 'admin':
-                    responseData = mockData[i];
-                break;
-                case 'mentor':
-                    responseData = mockMentor;
-                break;
-                case 'mentee': 
-                    responseData = mockMentee;
-                break;
-                default:
-                    //response data is already the dead mock. 
-            }
-        }
-    }
+    let responseData;
+
+    // for (let i = 0; i < mockData.length; i++) {
+    //     if (mockData[i].userData.name === submittedUsername) {
+    //         switch(mockData[i].userData.role) {
+    //             case 'admin':
+    //                 responseData = mockData[i];
+    //             break;
+    //             case 'mentor':
+    //                 responseData = mockMentor;
+    //             break;
+    //             case 'mentee': 
+    //                 responseData = mockMentee;
+    //             break;
+    //             default:
+    //                 //response data is already the dead mock. 
+    //         }
+    //     }
+    // }
+
+    responseData = mockDataObject[submittedUsername] ? mockDataObject[submittedUsername] : mockDataObject['badLogin'];
 
     if (responseData.userId != 0) {
         //if its a real user issue a token and log in
