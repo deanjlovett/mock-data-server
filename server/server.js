@@ -65,6 +65,8 @@ app.get('/login', (req, res) => {
                 currentUserData: mockDataObject[submittedUsername]
             }
         }
+        console.log('login responseData: ', JSON.stringify(responseData) );
+
         //if its a real user issue a token and log in
         const payload = { submittedUsername, responseData };
         const token = jwt.sign(payload, secret, { expiresIn: '4h'});

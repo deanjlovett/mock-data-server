@@ -10,7 +10,7 @@ const secret = process.env.JWT_SECRET;
 
 const withAuth = (req, res, next) => {
     let token = req.cookies.token;
-
+    //console.log();
     if (!token) {
         res.status(401).send('Unauthorized: No token provided');
     } else {
