@@ -45,11 +45,18 @@ app.get('/login', (req, res) => {
     const submittedUsername = req.query.username;
 
     let responseData;
+//
+//    responseData = mockDataObject[submittedUsername] ? mockDataObject[submittedUsername] : mockDataObject['badLogin'];
+    responseData = mockDataObject[submittedUsername];
+    console.log('responseData1: ', responseData);
+    if( responseData === undefined ){
+        responseData = mockDataObject['badLogin'];
+    }
+    console.log('responseData2: ', responseData);
 
-    responseData = mockDataObject[submittedUsername] ? mockDataObject[submittedUsername] : mockDataObject['badLogin'];
-
-    if (responseData.userId != 0) {
-        if (mockDataObject[submittedUsername].userData.role === 'admin') {
+    if (responseData.userData.userId != 0) {
+        console.log('Good Login attempt ', responseData.userData)
+        if (responseData.userData.role === 'admin') {
             let allUsers = [];
             for (user in mockDataObject) {
                 if (["mentor", "mentee"].find( e => e === mockDataObject[user].userData.role  ) != undefined) {
@@ -73,10 +80,11 @@ app.get('/login', (req, res) => {
         res.cookie('token', token, { httpOnly: false, secure: false }).status(200).send(responseData);
     } else {
         //if it's not a user send empty user data object
-        responseData = {
-            currentUserData: mockDataObject['badLogin']
-        }
-        res.status(200).send(responseData);
+        // responseData = {
+        //     currentUserData: mockDataObject['badLogin']
+        // }
+        console.log('Bad Login attempt')
+        res.status(401);
     }
 });
 
