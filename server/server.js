@@ -35,7 +35,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
 app.get('/', (req, res) => {
     console.log('request made to root...');
     res.status(200).send("server is functioning");
@@ -45,17 +44,15 @@ app.get('/login', (req, res) => {
     const submittedUsername = req.query.username;
 
     let responseData;
-//
 //    responseData = mockDataObject[submittedUsername] ? mockDataObject[submittedUsername] : mockDataObject['badLogin'];
     responseData = mockDataObject[submittedUsername];
     console.log('responseData1: ', responseData);
     if( responseData === undefined ){
         responseData = mockDataObject['badLogin'];
     }
-    console.log('responseData2: ', responseData);
 
     if (responseData.userData.userId != 0) {
-        console.log('Good Login attempt ', responseData.userData)
+        //if its the admin send them all no-admin user data
         if (responseData.userData.role === 'admin') {
             let allUsers = [];
             for (user in mockDataObject) {
@@ -68,11 +65,12 @@ app.get('/login', (req, res) => {
                 allUsers: allUsers
             };  
         } else {
+            //if its not the admin send them their own user data
+
             responseData = {
                 currentUserData: mockDataObject[submittedUsername]
             }
         }
-        console.log('login responseData: ', JSON.stringify(responseData) );
 
         //if its a real user issue a token and log in
         const payload = { submittedUsername, responseData };
@@ -88,38 +86,14 @@ app.get('/login', (req, res) => {
     }
 });
 
-app.get('/mentor', withAuth, (req, res) => {
+app.get('/authorizedDataRequest', withAuth, (req, res) => {
     //This is put in req.body by the middleware
     const { userName, userData } = req.body;
-
-    //userData and userName are sent back having been parsed out of the token stuck in the Cookies, no need oo re-request explicitly if user has a valid token issued at login. 
-    res.status(200).send({
-        userName: userName,
-        userData: userData
-    });
-});
-
-app.get('/mentee', withAuth, (req, res) => {
-    //This is put in req.body by the middleware
-    const { userName, userData } = req.body;
-
-    //userData and userName are sent back having been parsed out of the token stuck in the Cookies, no need oo re-request explicitly if user has a valid token issued at login. 
-    res.status(200).send({
-        userName: userName,
-        userData: userData
-    });
-});
-
-app.get('/dashboard', withAuth, (req, res) => {
-    //This is put in req.body by the middleware
-    const { userName, userData } = req.body;
-    console.log(`userData: `, userData);
     let userRole = userData.currentUserData.userData.role;
 
     let responseData;
 
     responseData = mockDataObject[userName] ? mockDataObject[userName] : mockDataObject['badLogin'];
-
 
         if (userRole === 'admin') {
             let allUsers = [];
@@ -133,12 +107,13 @@ app.get('/dashboard', withAuth, (req, res) => {
                 allUsers: allUsers
             };  
         } else {
-            responseData = mockDataObject[userName];
+            responseData = {
+                currentUserData: mockDataObject[submittedUsername]
+            }
         }
         
         res.status(200).send(responseData);
-    
-
+        
 });
 
 module.exports = app;

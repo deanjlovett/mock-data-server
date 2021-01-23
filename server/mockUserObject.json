@@ -38,7 +38,9 @@
                 "lifetimeSessions": 8,
                 "lifetimeSessionsPossible": 9,
                 "rating": 3.5,
-                "isFinished": true
+                "isFinished": true,
+                "jobTitle": "Plumber",
+                "company": "Microsoft"
             }
         }, 
         {
@@ -57,7 +59,9 @@
                 "lifetimeSessions": 8,
                 "lifetimeSessionsPossible": 9,
                 "rating": 3.5,
-                "isFinished": true
+                "isFinished": true,
+                "jobTitle": "Plumber",
+                "company": "Microsoft"
 
             }
         }],
@@ -73,7 +77,9 @@
             "currentStreak": 1,
             "longestStreak": 3,
             "rating": 3.5,
-            "isFinished": true
+            "isFinished": true,
+            "jobTitle": "Plumber",
+            "company": "Microsoft"
 
         }
     },
@@ -94,7 +100,9 @@
                 "lifetimeSessions": 8,
                 "lifetimeSessionsPossible": 9,
                 "rating": 3.5,
-                "isFinished": true
+                "isFinished": true,
+                "jobTitle": "Plumber",
+                "company": "Microsoft"
 
             }
         }, {
@@ -113,7 +121,9 @@
                 "lifetimeSessions": 8,
                 "lifetimeSessionsPossible": 9,
                 "rating": 3.5,
-                "isFinished": true
+                "isFinished": true,
+                "jobTitle": "Plumber",
+                "company": "Microsoft"
 
             }
         }],
@@ -129,7 +139,9 @@
             "currentStreak": 1,
             "longestStreak": 3,
             "rating": 3.5,
-            "isFinished": true
+            "isFinished": true,
+            "jobTitle": "Plumber",
+            "company": "Microsoft"
 
         }
     },
@@ -149,7 +161,9 @@
                 "sessionsPossible": 3,
                 "lifetimeSessions": 8,
                 "lifetimeSessionsPossible": 9,
-                "rating": 3.5
+                "rating": 3.5,
+                "jobTitle": "Plumber",
+                "company": "Microsoft"
             }
         }],
         "userData": {
@@ -166,7 +180,9 @@
             "lifetimeSessions": 8,
             "lifetimeSessionsPossible": 9,
             "rating": 3.5,
-            "isFinished": true
+            "isFinished": true,
+            "jobTitle": "Plumber",
+            "company": "Microsoft"
 
         }
     }, 
@@ -185,7 +201,9 @@
                 "currentStreak": 1,
                 "longestStreak": 3,
                 "rating": 3.5,
-                "isFinished": true
+                "isFinished": true,
+                "jobTitle": "Plumber",
+                "company": "Microsoft"
 
             }
         }],
@@ -203,7 +221,9 @@
             "lifetimeSessions": 8,
             "lifetimeSessionsPossible": 9,
             "rating": 3.5,
-            "isFinished": true
+            "isFinished": true,
+            "jobTitle": "Plumber",
+            "company": "Microsoft"
 
         }
     },
@@ -222,8 +242,9 @@
                 "currentStreak": 1,
                 "longestStreak": 3,
                 "rating": 3.5,
-                "isFinished": true
-
+                "isFinished": true,
+                "jobTitle": "Plumber",
+                "company": "Microsoft"
             }
         }],
         "userData": {
@@ -240,7 +261,9 @@
             "lifetimeSessions": 8,
             "lifetimeSessionsPossible": 9,
             "rating": 3.5,
-            "isFinished": true
+            "isFinished": true,
+            "jobTitle": "Plumber",
+            "company": "Microsoft"
 
         }
     },
@@ -259,7 +282,9 @@
                 "currentStreak": 1,
                 "longestStreak": 3,
                 "rating": 3.5,
-                "isFinished": true
+                "isFinished": true,
+                "jobTitle": "Plumber",
+                "company": "Microsoft"
 
             }
         }],
@@ -277,7 +302,9 @@
             "lifetimeSessions": 8,
             "lifetimeSessionsPossible": 9,
             "rating": 3.5,
-            "isFinished": true
+            "isFinished": true,
+            "jobTitle": "Plumber",
+            "company": "Microsoft"
 
         }
     },
@@ -296,7 +323,9 @@
             "lifetimeSessions": 8,
             "lifetimeSessionsPossible": 9,
             "rating": 3.5,
-            "isFinished": false
+            "isFinished": false,
+            "jobTitle": "Plumber",
+            "company": "Microsoft"
 
         },
         "mentors": [
@@ -314,7 +343,9 @@
                     "currentStreak": 1,
                     "longestStreak": 3,
                     "rating": 3.5,
-                    "isFinished": true
+                    "isFinished": true,
+                    "jobTitle": "Plumber",
+                    "company": "Microsoft"
     
                 }
             },
@@ -332,7 +363,9 @@
                     "currentStreak": 1,
                     "longestStreak": 3,
                     "rating": 3.5,
-                    "isFinished": false
+                    "isFinished": false,
+                    "jobTitle": "Plumber",
+                    "company": "Microsoft"
     
                 }
             }
