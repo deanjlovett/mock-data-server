@@ -17,15 +17,15 @@
                 "meetingsDone": 40,
                 "satisfaction": 90,
                 "notStarted":1,
-                "inProgress":1,
-                "completed":2
+                "inProgress":2,
+                "completed":4
             },
             "mentee":{
                 "meetingsDone": 70,
                 "satisfaction": 30,
-                "notStarted":3,
-                "inProgress":5,
-                "completed":8
+                "notStarted":5,
+                "inProgress":2,
+                "completed":1
             }
         }
     },
@@ -40,7 +40,7 @@
                 "meetingsDone": 30,
                 "satisfaction": 80,
                 "notStarted":20,
-                "inProgress":15,
+                "inProgress":40,
                 "completed":11
             },
             "mentee":{
