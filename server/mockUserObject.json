@@ -10,8 +10,23 @@
         "userData": {
             "userId": 1,
             "name": "admin1",
-            "role": "admin",
-            "users": {}
+            "role": "admin"
+        },
+        "stats":{
+            "mentor":{
+                "meetingsDone": 40,
+                "satisfaction": 90,
+                "notStarted":1,
+                "inProgress":1,
+                "completed":2
+            },
+            "mentee":{
+                "meetingsDone": 70,
+                "satisfaction": 30,
+                "notStarted":3,
+                "inProgress":5,
+                "completed":8
+            }
         }
     },
     "admin2" :{
@@ -19,7 +34,24 @@
         "userId": 2,
         "name": "admin2",
         "role": "admin"
+        },
+        "stats":{
+            "mentor":{
+                "meetingsDone": 30,
+                "satisfaction": 80,
+                "notStarted":20,
+                "inProgress":15,
+                "completed":11
+            },
+            "mentee":{
+                "meetingsDone": 60,
+                "satisfaction": 20,
+                "notStarted":60,
+                "inProgress":2,
+                "completed":1
+            }
         }
+
     },
     "mentor1" :{
         "mentees": [{
