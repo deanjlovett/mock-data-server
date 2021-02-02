@@ -1,15 +1,15 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
+const express = require('express');
+const bodyParser = require('body-parser');
+// const morgan = require("morgan");
 const jwt = require('jsonwebtoken');
-const cookieParser = require("cookie-parser");
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
-const mockData = require('./mockUsers.json');
+// const mockData = require('./mockUsers.json');
 const mockDataObject = require('./mockUserObject.json');
 
-const mockMentor = require('./mentor.json');
-const mockMentee = require('./mentee.json');
+// const mockMentor = require('./mentor.json');
+// const mockMentee = require('./mentee.json');
 
 //This is middle ware that will check a token if we want at some point. 
 const withAuth = require('./with-auth.js');
@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
     console.log('request made to root...');
-    res.status(200).send("server is functioning");
+    res.status(200).send('server is functioning');
 });
 
 app.get('/login', (req, res) => {
@@ -82,7 +82,7 @@ app.get('/login', (req, res) => {
         //     currentUserData: mockDataObject['badLogin']
         // }
         console.log('Bad Login attempt')
-        res.status(401);
+        res.status(401).send();
     }
 });
 
