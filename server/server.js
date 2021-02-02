@@ -82,7 +82,7 @@ app.get('/login', (req, res) => {
         //     currentUserData: mockDataObject['badLogin']
         // }
         console.log('Bad Login attempt')
-        res.status(401);
+        res.status(401).send();
     }
 });
 
@@ -115,5 +115,9 @@ app.get('/authorizedDataRequest', withAuth, (req, res) => {
         res.status(200).send(responseData);
         
 });
+
+app.post('./updateUser', (req, res) => {
+    console.log(`In update: `, req);
+})
 
 module.exports = app;
