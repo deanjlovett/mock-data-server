@@ -70,7 +70,7 @@
                 "lifetimeSessions": 8,
                 "lifetimeSessionsPossible": 9,
                 "rating": 3.5,
-                "isFinished": true,
+                "completed": true,
                 "jobTitle": "Plumber",
                 "company": "Microsoft"
             }
@@ -91,7 +91,7 @@
                 "lifetimeSessions": 8,
                 "lifetimeSessionsPossible": 9,
                 "rating": 3.5,
-                "isFinished": true,
+                "completed": true,
                 "jobTitle": "Plumber",
                 "company": "Microsoft"
 
@@ -109,7 +109,7 @@
             "currentStreak": 1,
             "longestStreak": 3,
             "rating": 3.5,
-            "isFinished": true,
+            "completed": true,
             "jobTitle": "Plumber",
             "company": "Microsoft"
 
@@ -132,7 +132,7 @@
                 "lifetimeSessions": 8,
                 "lifetimeSessionsPossible": 9,
                 "rating": 3.5,
-                "isFinished": true,
+                "completed": true,
                 "jobTitle": "Plumber",
                 "company": "Microsoft"
 
@@ -153,7 +153,7 @@
                 "lifetimeSessions": 8,
                 "lifetimeSessionsPossible": 9,
                 "rating": 3.5,
-                "isFinished": true,
+                "completed": true,
                 "jobTitle": "Plumber",
                 "company": "Microsoft"
 
@@ -171,7 +171,7 @@
             "currentStreak": 1,
             "longestStreak": 3,
             "rating": 3.5,
-            "isFinished": true,
+            "completed": true,
             "jobTitle": "Plumber",
             "company": "Microsoft"
 
@@ -212,7 +212,7 @@
             "lifetimeSessions": 8,
             "lifetimeSessionsPossible": 9,
             "rating": 3.5,
-            "isFinished": true,
+            "completed": true,
             "jobTitle": "Plumber",
             "company": "Microsoft"
 
@@ -233,7 +233,7 @@
                 "currentStreak": 1,
                 "longestStreak": 3,
                 "rating": 3.5,
-                "isFinished": true,
+                "completed": true,
                 "jobTitle": "Plumber",
                 "company": "Microsoft"
 
@@ -253,7 +253,7 @@
             "lifetimeSessions": 8,
             "lifetimeSessionsPossible": 9,
             "rating": 3.5,
-            "isFinished": true,
+            "completed": true,
             "jobTitle": "Plumber",
             "company": "Microsoft"
 
@@ -274,7 +274,7 @@
                 "currentStreak": 1,
                 "longestStreak": 3,
                 "rating": 3.5,
-                "isFinished": true,
+                "completed": true,
                 "jobTitle": "Plumber",
                 "company": "Microsoft"
             }
@@ -293,7 +293,7 @@
             "lifetimeSessions": 8,
             "lifetimeSessionsPossible": 9,
             "rating": 3.5,
-            "isFinished": true,
+            "completed": true,
             "jobTitle": "Plumber",
             "company": "Microsoft"
 
@@ -314,7 +314,7 @@
                 "currentStreak": 1,
                 "longestStreak": 3,
                 "rating": 3.5,
-                "isFinished": true,
+                "completed": true,
                 "jobTitle": "Plumber",
                 "company": "Microsoft"
 
@@ -334,7 +334,7 @@
             "lifetimeSessions": 8,
             "lifetimeSessionsPossible": 9,
             "rating": 3.5,
-            "isFinished": true,
+            "completed": true,
             "jobTitle": "Plumber",
             "company": "Microsoft"
 
@@ -355,7 +355,7 @@
             "lifetimeSessions": 8,
             "lifetimeSessionsPossible": 9,
             "rating": 3.5,
-            "isFinished": false,
+            "completed": false,
             "jobTitle": "Plumber",
             "company": "Microsoft"
 
@@ -375,7 +375,7 @@
                     "currentStreak": 1,
                     "longestStreak": 3,
                     "rating": 3.5,
-                    "isFinished": true,
+                    "completed": true,
                     "jobTitle": "Plumber",
                     "company": "Microsoft"
     
@@ -395,7 +395,7 @@
                     "currentStreak": 1,
                     "longestStreak": 3,
                     "rating": 3.5,
-                    "isFinished": false,
+                    "completed": false,
                     "jobTitle": "Plumber",
                     "company": "Microsoft"
     
