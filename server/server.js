@@ -116,8 +116,12 @@ app.get('/authorizedDataRequest', withAuth, (req, res) => {
         
 });
 
-app.post('./updateUser', (req, res) => {
-    console.log(`In update: `, req);
+app.post('/updateMentor', (req, res) => {
+    console.log(`In Mentor update: `, req.body);
+})
+
+app.post('/updateMentee', (req, res) => {
+    console.log(`In Mentee update: `, req.body);
 })
 
 module.exports = app;
